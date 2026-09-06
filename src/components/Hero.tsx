@@ -22,6 +22,17 @@ import {
 } from 'lucide-react';
 import { ENTERPRISE_EASING } from './animations/MotionComponents';
 import { HeroDataFlowEngine } from './HeroDataFlowEngine';
+import { 
+  SlackIcon, 
+  GoogleDriveIcon, 
+  JiraIcon, 
+  ConfluenceIcon, 
+  SharePointIcon, 
+  GitHubIcon, 
+  SalesforceIcon, 
+  WhatsAppIcon, 
+  PostgreSQLIcon 
+} from './icons/BrandIcons';
 
 interface HeroProps {
   onBuildClick: () => void;
@@ -63,15 +74,15 @@ export const Hero: React.FC<HeroProps> = ({
   ];
 
   const connectedApps = [
-    { name: 'Slack', icon: '💬', color: 'bg-emerald-50 text-emerald-700' },
-    { name: 'Google Drive', icon: '📁', color: 'bg-amber-50 text-amber-700' },
-    { name: 'Jira', icon: '🔷', color: 'bg-blue-50 text-blue-700' },
-    { name: 'Confluence', icon: '📄', color: 'bg-sky-50 text-sky-700' },
-    { name: 'SharePoint', icon: '🌐', color: 'bg-teal-50 text-teal-700' },
-    { name: 'GitHub', icon: '🐙', color: 'bg-neutral-100 text-neutral-800' },
-    { name: 'Salesforce', icon: '☁️', color: 'bg-blue-50 text-blue-800' },
-    { name: 'WhatsApp', icon: '🟢', color: 'bg-emerald-50 text-emerald-800' },
-    { name: 'PostgreSQL', icon: '🐘', color: 'bg-indigo-50 text-indigo-800' },
+    { name: 'Slack', icon: SlackIcon, color: 'bg-emerald-50 text-emerald-700' },
+    { name: 'Google Drive', icon: GoogleDriveIcon, color: 'bg-amber-50 text-amber-700' },
+    { name: 'Jira', icon: JiraIcon, color: 'bg-blue-50 text-blue-700' },
+    { name: 'Confluence', icon: ConfluenceIcon, color: 'bg-sky-50 text-sky-700' },
+    { name: 'SharePoint', icon: SharePointIcon, color: 'bg-teal-50 text-teal-700' },
+    { name: 'GitHub', icon: GitHubIcon, color: 'bg-neutral-100 text-neutral-800' },
+    { name: 'Salesforce', icon: SalesforceIcon, color: 'bg-blue-50 text-blue-800' },
+    { name: 'WhatsApp', icon: WhatsAppIcon, color: 'bg-emerald-50 text-emerald-800' },
+    { name: 'PostgreSQL', icon: PostgreSQLIcon, color: 'bg-indigo-50 text-indigo-800' },
   ];
 
   const handleSelectQuery = (index: number) => {
@@ -200,15 +211,18 @@ export const Hero: React.FC<HeroProps> = ({
                   <span className="text-[10px] text-neutral-400 uppercase font-bold tracking-wider mr-1 hidden sm:inline">
                     Searching in:
                   </span>
-                  {connectedApps.map((app) => (
-                    <span 
-                      key={app.name}
-                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-neutral-200/60 ${app.color} transition-all cursor-default select-none shrink-0 shadow-2xs`}
-                    >
-                      <span>{app.icon}</span>
-                      <span>{app.name}</span>
-                    </span>
-                  ))}
+                  {connectedApps.map((app) => {
+                    const IconComponent = app.icon;
+                    return (
+                      <span 
+                        key={app.name}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-neutral-200/90 bg-white text-neutral-800 text-[11px] font-medium shadow-2xs hover:shadow-xs hover:border-neutral-300 hover:-translate-y-0.5 transition-all cursor-default select-none shrink-0"
+                      >
+                        <IconComponent className="w-3.5 h-3.5 shrink-0" />
+                        <span>{app.name}</span>
+                      </span>
+                    );
+                  })}
                 </div>
 
                 {/* Interactive Results Drawer (Opens upon click/query) */}
