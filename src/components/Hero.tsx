@@ -128,21 +128,21 @@ export const Hero: React.FC<HeroProps> = ({
         >
           <motion.button 
             onClick={onWatchDemo}
-            whileHover={{ y: -2, boxShadow: '0 12px 28px -6px rgba(0, 0, 0, 0.25)' }}
+            whileHover={{ scale: 1.05, y: -3, boxShadow: '0 16px 32px -4px rgba(0, 0, 0, 0.35)' }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-3 rounded-full text-sm font-semibold text-white bg-black hover:bg-neutral-800 shadow-md shadow-black/10 transition-colors cursor-pointer flex items-center gap-2 select-none group"
+            className="px-8 py-3 rounded-full text-sm font-semibold text-white bg-black hover:bg-neutral-800 shadow-md shadow-black/10 transition-all cursor-pointer flex items-center gap-2 select-none group btn-hover-shimmer relative"
           >
             <span>Get a demo</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1.5" />
           </motion.button>
 
           <motion.button 
             onClick={onBuildClick}
-            whileHover={{ y: -2, borderColor: 'rgba(0, 0, 0, 0.8)' }}
+            whileHover={{ scale: 1.04, y: -2, borderColor: 'rgba(0, 0, 0, 0.9)', boxShadow: '0 10px 24px -4px rgba(59, 130, 246, 0.2)' }}
             whileTap={{ scale: 0.98 }}
-            className="px-6 py-3 rounded-full text-sm font-semibold text-neutral-800 hover:text-black border border-neutral-300 hover:border-neutral-900 transition-colors cursor-pointer flex items-center gap-2 select-none"
+            className="px-6 py-3 rounded-full text-sm font-semibold text-neutral-800 hover:text-black border border-neutral-300 hover:border-neutral-900 transition-all cursor-pointer flex items-center gap-2 select-none group btn-hover-shimmer relative"
           >
-            <Sparkles className="w-4 h-4 text-blue-600 animate-pulse" />
+            <Sparkles className="w-4 h-4 text-blue-600 group-hover:rotate-12 transition-transform duration-300 animate-pulse" />
             <span>Launch AI Studio</span>
           </motion.button>
         </motion.div>

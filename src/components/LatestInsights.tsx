@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight, Tag, Calendar } from 'lucide-react';
 
-export const LatestInsights: React.FC = () => {
+interface LatestInsightsProps {
+  onOpenMaintenance?: (feature?: string) => void;
+}
+
+export const LatestInsights: React.FC<LatestInsightsProps> = ({ onOpenMaintenance }) => {
   const articles = [
     {
       category: 'Product Announcement',
@@ -40,13 +44,13 @@ export const LatestInsights: React.FC = () => {
             </h2>
           </div>
 
-          <a 
-            href="#resources"
-            className="text-xs font-semibold text-neutral-800 hover:text-black flex items-center gap-1.5 transition-colors"
+          <button 
+            onClick={() => onOpenMaintenance?.('Articles & Research')}
+            className="text-xs font-semibold text-neutral-800 hover:text-black flex items-center gap-1.5 transition-colors cursor-pointer"
           >
             <span>View all articles & research</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+          </button>
         </div>
 
         {/* 3 News Cards (Glean Style) */}
@@ -54,6 +58,7 @@ export const LatestInsights: React.FC = () => {
           {articles.map((item, idx) => (
             <div 
               key={idx}
+              onClick={() => onOpenMaintenance?.(item.title)}
               className="rounded-3xl border border-neutral-200 bg-white p-7 shadow-xs hover:shadow-md hover:border-neutral-300 transition-all flex flex-col justify-between group cursor-pointer"
             >
               <div>

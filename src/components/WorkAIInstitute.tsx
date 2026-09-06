@@ -1,7 +1,11 @@
 import React from 'react';
 import { Globe, ArrowRight, FileText, Headphones, Sparkles } from 'lucide-react';
 
-export const WorkAIInstitute: React.FC = () => {
+interface WorkAIInstituteProps {
+  onOpenMaintenance?: (feature?: string) => void;
+}
+
+export const WorkAIInstitute: React.FC<WorkAIInstituteProps> = ({ onOpenMaintenance }) => {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -29,9 +33,12 @@ export const WorkAIInstitute: React.FC = () => {
               </p>
 
               <div className="pt-2">
-                <button className="px-5 py-2.5 rounded-full text-xs font-semibold text-neutral-900 bg-white hover:bg-neutral-100 transition-all cursor-pointer flex items-center gap-2">
+                <button 
+                  onClick={() => onOpenMaintenance?.('Dataktif Work AI Institute')}
+                  className="px-5 py-2.5 rounded-full text-xs font-semibold text-neutral-900 bg-white hover:bg-neutral-100 hover:shadow-lg transition-all cursor-pointer flex items-center gap-2 btn-hover-shimmer group relative"
+                >
                   <span>Discover Work AI Institute</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
                 </button>
               </div>
             </div>
@@ -40,7 +47,10 @@ export const WorkAIInstitute: React.FC = () => {
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Publication 1: The Work AI Index */}
-              <div className="p-5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-neutral-700 transition-all flex flex-col justify-between group cursor-pointer">
+              <div 
+                onClick={() => onOpenMaintenance?.('Enterprise AI Index Report')}
+                className="p-5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-neutral-700 transition-all flex flex-col justify-between group cursor-pointer"
+              >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-3">
                     <FileText className="w-4 h-4" />
@@ -63,7 +73,10 @@ export const WorkAIInstitute: React.FC = () => {
               </div>
 
               {/* Publication 2: Podcast */}
-              <div className="p-5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-neutral-700 transition-all flex flex-col justify-between group cursor-pointer">
+              <div 
+                onClick={() => onOpenMaintenance?.('Dataktif Executive Podcast')}
+                className="p-5 rounded-2xl bg-neutral-900/80 border border-neutral-800 hover:border-neutral-700 transition-all flex flex-col justify-between group cursor-pointer"
+              >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center mb-3">
                     <Headphones className="w-4 h-4" />

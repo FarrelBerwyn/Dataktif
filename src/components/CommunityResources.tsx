@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight, Users, Handshake, BookOpen } from 'lucide-react';
 
-export const CommunityResources: React.FC = () => {
+interface CommunityResourcesProps {
+  onOpenMaintenance?: (feature?: string) => void;
+}
+
+export const CommunityResources: React.FC<CommunityResourcesProps> = ({ onOpenMaintenance }) => {
   const cards = [
     {
       title: 'Learn from the Dataktif community',
@@ -39,6 +43,7 @@ export const CommunityResources: React.FC = () => {
             return (
               <div 
                 key={idx}
+                onClick={() => onOpenMaintenance?.(c.name)}
                 className="rounded-3xl border border-neutral-200 bg-white overflow-hidden shadow-sm hover:shadow-md hover:border-neutral-300 transition-all flex flex-col justify-between group cursor-pointer"
               >
                 {/* Flowing Silk Ribbon Header (Glean Style) */}

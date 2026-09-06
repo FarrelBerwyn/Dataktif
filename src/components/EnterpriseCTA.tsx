@@ -52,22 +52,22 @@ export const EnterpriseCTA: React.FC<EnterpriseCTAProps> = ({
           {/* Glean Signature Black Pill Button */}
           <motion.button
             onClick={onBookDemo}
-            whileHover={{ y: -2, boxShadow: '0 10px 24px -4px rgba(0, 0, 0, 0.25)' }}
+            whileHover={{ scale: 1.05, y: -3, boxShadow: '0 16px 36px -4px rgba(0, 0, 0, 0.35)' }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-black hover:bg-neutral-800 shadow-md transition-colors cursor-pointer flex items-center gap-2"
+            className="px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-black hover:bg-neutral-800 shadow-md transition-all cursor-pointer flex items-center gap-2 btn-hover-shimmer group relative"
           >
             <span>Get a demo</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
           </motion.button>
 
           {onExplorePlatform && (
             <motion.button
               onClick={onExplorePlatform}
-              whileHover={{ y: -2, borderColor: '#0f172a' }}
+              whileHover={{ scale: 1.04, y: -2, borderColor: '#0f172a', boxShadow: '0 10px 24px -4px rgba(59, 130, 246, 0.25)' }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-3.5 rounded-full text-sm font-semibold text-neutral-800 hover:text-black border border-neutral-300 transition-colors cursor-pointer flex items-center gap-2"
+              className="px-6 py-3.5 rounded-full text-sm font-semibold text-neutral-800 hover:text-black border border-neutral-300 transition-all cursor-pointer flex items-center gap-2 btn-hover-shimmer group relative"
             >
-              <Sparkles className="w-4 h-4 text-blue-600" />
+              <Sparkles className="w-4 h-4 text-blue-600 group-hover:rotate-12 transition-transform duration-300" />
               <span>Explore AI Studio</span>
             </motion.button>
           )}

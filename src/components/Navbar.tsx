@@ -335,10 +335,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Glean Signature Royal Blue Pill Button: Get a demo */}
             <motion.button 
               onClick={handleDemoClick}
-              whileHover={{ y: -2, boxShadow: '0 8px 20px -4px rgba(26, 86, 219, 0.45)' }}
+              whileHover={{ scale: 1.05, y: -2, boxShadow: '0 10px 24px -4px rgba(26, 86, 219, 0.5)' }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="px-5 py-2 rounded-full text-xs font-semibold text-white bg-[#1a56db] hover:bg-[#1e429f] shadow-sm shadow-blue-600/20 transition-colors cursor-pointer flex items-center gap-1.5 select-none"
+              className="px-5 py-2 rounded-full text-xs font-semibold text-white bg-[#1a56db] hover:bg-[#1e429f] shadow-sm shadow-blue-600/20 transition-all cursor-pointer flex items-center gap-1.5 select-none btn-hover-shimmer relative"
             >
               <span>Get a demo</span>
             </motion.button>
@@ -409,8 +409,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="pt-2 flex flex-col gap-2">
                 <motion.button 
                   onClick={() => { handleDemoClick(); setMobileMenuOpen(false); }}
+                  whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-2.5 rounded-full bg-[#1a56db] text-xs font-semibold text-white shadow-sm flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-full bg-[#1a56db] text-xs font-semibold text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer btn-hover-shimmer"
                 >
                   <span>Get a demo</span>
                 </motion.button>

@@ -96,12 +96,12 @@ export const KnowledgeSpendSection: React.FC<KnowledgeSpendSectionProps> = ({ on
 
             <motion.button
               onClick={onExploreRouter}
-              whileHover={{ y: -2, boxShadow: '0 8px 20px -4px rgba(0, 0, 0, 0.15)' }}
+              whileHover={{ scale: 1.05, y: -2, boxShadow: '0 10px 24px -4px rgba(0, 0, 0, 0.2)', borderColor: '#0f172a' }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-2.5 rounded-full text-xs font-semibold text-neutral-900 border border-neutral-300 hover:border-neutral-900 transition-colors cursor-pointer flex items-center gap-2"
+              className="px-6 py-2.5 rounded-full text-xs font-semibold text-neutral-900 border border-neutral-300 hover:border-neutral-900 transition-all cursor-pointer flex items-center gap-2 btn-hover-shimmer group relative"
             >
               <span>Explore Model Hub</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
             </motion.button>
           </div>
 

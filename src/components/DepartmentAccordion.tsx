@@ -106,12 +106,12 @@ export const DepartmentAccordion: React.FC<DepartmentAccordionProps> = ({ onSeeS
             <div>
               <motion.button
                 onClick={onSeeStories}
-                whileHover={{ y: -2, boxShadow: '0 10px 24px -4px rgba(0, 0, 0, 0.2)' }}
+                whileHover={{ scale: 1.05, y: -3, boxShadow: '0 14px 28px -4px rgba(0, 0, 0, 0.3)' }}
                 whileTap={{ scale: 0.98 }}
-                className="px-6 py-3 rounded-full text-xs font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer flex items-center gap-2 shadow-sm"
+                className="px-6 py-3 rounded-full text-xs font-semibold text-white bg-black hover:bg-neutral-800 transition-all cursor-pointer flex items-center gap-2 shadow-sm btn-hover-shimmer group relative"
               >
                 <span>See customer stories</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
               </motion.button>
             </div>
           </div>

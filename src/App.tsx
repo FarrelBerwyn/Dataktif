@@ -16,11 +16,25 @@ import { EnterpriseCTA } from './components/EnterpriseCTA';
 import { Footer } from './components/Footer';
 import { InteractiveStudio } from './components/InteractiveStudio';
 import { DemoModal } from './components/DemoModal';
+import { MaintenanceModal } from './components/MaintenanceModal';
+import { ComingSoonModal } from './components/ComingSoonModal';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<'landing' | 'studio'>('landing');
   const [studioInitialTab, setStudioInitialTab] = useState<'agents' | 'workflows' | 'knowledge' | 'models' | 'logs'>('agents');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isMaintenanceOpen, setIsMaintenanceOpen] = useState(false);
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
+  const [maintenanceFeature, setMaintenanceFeature] = useState<string | undefined>(undefined);
+
+  const handleOpenMaintenance = (feature?: string) => {
+    setMaintenanceFeature(feature);
+    setIsMaintenanceOpen(true);
+  };
+
+  const handleOpenComingSoon = () => {
+    setIsComingSoonOpen(true);
+  };
 
   // Smooth scroll to section
   const handleNavigate = (sectionId: string) => {
@@ -59,8 +73,8 @@ export default function App() {
       <Navbar 
         onNavigate={handleNavigate}
         onLaunchStudio={() => handleOpenStudio('agents')}
-        onBookDemo={() => setIsDemoModalOpen(true)}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
+        onBookDemo={handleOpenComingSoon}
+        onOpenDemo={handleOpenComingSoon}
       />
 
       {/* Main View Router */}
@@ -77,8 +91,8 @@ export default function App() {
           {/* 1. Hero Section with Signature Silk Wave Artwork & Search Box */}
           <div id="hero">
             <Hero 
-              onBuildClick={() => handleOpenStudio('agents')}
-              onWatchDemo={() => setIsDemoModalOpen(true)}
+              onBuildClick={() => handleOpenMaintenance('AI Studio')}
+              onWatchDemo={handleOpenComingSoon}
               onExploreArchitecture={() => handleNavigate('architecture-section')}
             />
           </div>
@@ -91,14 +105,14 @@ export default function App() {
           {/* 5. Cost & Model Router Narrative: Dataktif turns company knowledge into action without runaway spend */}
           <div id="knowledge-spend">
             <KnowledgeSpendSection 
-              onExploreRouter={() => handleOpenStudio('models')}
+              onExploreRouter={() => handleOpenMaintenance('Model Hub')}
             />
           </div>
 
           {/* 6. Built for Enterprise from Day One: Observability + Certifications */}
           <div id="governance-section">
             <GovernanceSection 
-              onLearnMore={() => setIsDemoModalOpen(true)}
+              onLearnMore={() => handleOpenMaintenance('Enterprise Governance & Audit')}
             />
           </div>
 
@@ -108,12 +122,14 @@ export default function App() {
           {/* 8. Department Transformation Accordion (Sales, Finance, Engineering, Legal) */}
           <div id="solutions-section">
             <DepartmentAccordion 
-              onSeeStories={() => setIsDemoModalOpen(true)}
+              onSeeStories={() => handleNavigate('customer-voices')}
             />
           </div>
 
-          {/* 9. Leadership Quotes & Video Testimonials */}
-          <LeadershipQuotes />
+          {/* 9. Leadership Quotes & Video Testimonials (Customer Voices) */}
+          <div id="customer-voices" className="scroll-mt-20">
+            <LeadershipQuotes />
+          </div>
 
           {/* 10. Platform Showcase: From Knowledge to Action (Agents, Workforce, RAG, SQL, Router) */}
           <div id="platform-modules">
@@ -134,20 +150,20 @@ export default function App() {
           </div>
 
           {/* 12. Work AI Institute: Thought Leadership & Podcast */}
-          <WorkAIInstitute />
+          <WorkAIInstitute onOpenMaintenance={handleOpenMaintenance} />
 
           {/* 13. 3-Column Resource Cards with Flowing Silk Ribbon Headers */}
-          <CommunityResources />
+          <CommunityResources onOpenMaintenance={handleOpenMaintenance} />
 
           {/* 14. Latest and Greatest News & Research Grid */}
           <div id="insights-section">
-            <LatestInsights />
+            <LatestInsights onOpenMaintenance={handleOpenMaintenance} />
           </div>
 
           {/* 15. Bottom Call To Action: "See Enterprise AI in action" with Black Pill Button */}
           <EnterpriseCTA 
-            onBookDemo={() => setIsDemoModalOpen(true)}
-            onExplorePlatform={() => handleOpenStudio('agents')}
+            onBookDemo={handleOpenComingSoon}
+            onExplorePlatform={() => handleOpenMaintenance('AI Studio')}
           />
         </main>
       )}
@@ -155,7 +171,7 @@ export default function App() {
       {/* Global Clean Enterprise Footer */}
       <Footer 
         onNavigate={handleNavigate}
-        onBookDemo={() => setIsDemoModalOpen(true)}
+        onBookDemo={handleOpenComingSoon}
       />
 
       {/* Interactive Demo Modal */}
@@ -163,6 +179,19 @@ export default function App() {
         isOpen={isDemoModalOpen}
         onClose={() => setIsDemoModalOpen(false)}
         onLaunchStudio={() => handleOpenStudio('agents')}
+      />
+
+      {/* Maintenance Notification Modal */}
+      <MaintenanceModal 
+        isOpen={isMaintenanceOpen}
+        onClose={() => setIsMaintenanceOpen(false)}
+        featureName={maintenanceFeature}
+      />
+
+      {/* Coming Soon & Waitlist Modal for 'Get a demo' */}
+      <ComingSoonModal 
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
       />
 
     </div>
