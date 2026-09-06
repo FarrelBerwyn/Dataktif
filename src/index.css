@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glean-style dotted grid texture */
+.bg-dots-pattern {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
+}
+
+.bg-grid-subtle {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Fluid iridescent silk ribbon gradient styles */
+.glean-silk-hero {
+  background: radial-gradient(circle at 20% 30%, #f472b6 0%, #a855f7 35%, #3b82f6 70%, #06b6d4 100%);
+  filter: contrast(1.1) saturate(1.2);
+}
+
+.glean-silk-banner {
+  background: linear-gradient(115deg, #e11d48 0%, #9333ea 40%, #4338ca 75%, #2563eb 100%);
+}
+
+.glean-silk-blue {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 80%, #38bdf8 100%);
+}
+
+.glean-silk-resource-1 {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 45%, #ec4899 90%, #f97316 100%);
+}
+
+.glean-silk-resource-2 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #06b6d4 100%);
+}
+
+.glean-silk-resource-3 {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 50%, #2dd4bf 100%);
+}
+
+/* Card hover transitions */
+.glean-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glean-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Liquid Morphism Animation Keyframes */
+@keyframes liquid-morph-1 {
+  0%, 100% {
+    border-radius: 65% 35% 45% 55% / 55% 45% 55% 45%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    border-radius: 40% 60% 65% 35% / 40% 55% 45% 60%;
+    transform: translate3d(12px, -3px, 0) scale(1.06);
+  }
+  66% {
+    border-radius: 55% 45% 30% 70% / 60% 35% 65% 40%;
+    transform: translate3d(-8px, 4px, 0) scale(0.96);
+  }
+}
+
+@keyframes liquid-morph-2 {
+  0%, 100% {
+    border-radius: 45% 55% 60% 40% / 50% 60% 40% 50%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  40% {
+    border-radius: 60% 40% 35% 65% / 40% 50% 50% 60%;
+    transform: translate3d(-15px, 2px, 0) scale(1.08);
+  }
+  80% {
+    border-radius: 35% 65% 55% 45% / 65% 40% 60% 35%;
+    transform: translate3d(10px, -4px, 0) scale(0.95);
+  }
+}
+
+@keyframes liquid-shine {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  60%, 100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+.animate-liquid-1 {
+  animation: liquid-morph-1 8s ease-in-out infinite;
+}
+
+.animate-liquid-2 {
+  animation: liquid-morph-2 10s ease-in-out infinite;
+}
+
+.animate-liquid-shine {
+  animation: liquid-shine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Dataktif Enterprise Data Flow & Particle Keyframes */
+@keyframes particle-flow-x {
+  0% {
+    transform: translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(20%) scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(80%) scale(1);
+  }
+  100% {
+    transform: translateX(100%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-subtle-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(59, 130, 246, 0.45);
+  }
+}
+
+@keyframes chart-scan-beam {
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-particle-flow {
+  animation: particle-flow-x 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-subtle-glow {
+  animation: pulse-subtle-glow 3s ease-in-out infinite;
+}
+
+.animate-scan-beam {
+  animation: chart-scan-beam 3.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 6;
+  animation: dash-flow 1.4s linear infinite;
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

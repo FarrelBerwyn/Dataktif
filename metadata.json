@@ -1,0 +1,6 @@
+{
+  "name": "Dataktif - Enterprise AI Infrastructure & Operating System",
+  "description": "Enterprise AIaaS platform connecting business data, knowledge, AI models, agents, workflows, and systems into one intelligent operating layer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
